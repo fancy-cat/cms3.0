@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/vuex/dist/vuex.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{$store.state.count}}</h1>
+        <button @click="add">+1</button>
+        <button @click="redu">-1</button>
+    </div>
+    <script>
+        const store = new Vuex.Store({
+            state:{
+                count:1
+            },
+            mutations:{
+                increase(state){
+                    state.count++;
+                },
+                reduce(state){
+                    state.count--;
+                }
+            },
+        })
+    
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                
+            },
+            store,
+            methods:{
+                add(){
+                    this.$store.commit('increase');
+                },
+                redu(){
+                    this.$store.commit('reduce');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
