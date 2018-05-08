@@ -75,13 +75,19 @@ export default new Vuex.Store({
         //购物车页面点击加1
         addOne:(state,id)=>{
             var temp = state.cartsinfo.find(v=>v.id==id);
-            temp.count++;
+            if(!temp){
+                return
+            }
+            temp.count++
             writeStorage(state.cartsinfo)
         },
 
         //购物车页面店家减1
         reduceOne:(state,id)=>{
             var temp = state.cartsinfo.find(v=>v.id==id);
+            if(!temp){
+                return
+            }
             temp.count--;
             writeStorage(state.cartsinfo)
         }
