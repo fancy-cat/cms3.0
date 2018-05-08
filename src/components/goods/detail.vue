@@ -22,6 +22,7 @@
 					</div>
           <div>
             <span>购买数量：</span>
+            <!-- 注意，这里我没有给numberbox 加商品id，因为购物车页面的+和-不需要与store中的数据联动 -->
             <numberbox min='0' :max="goodsdetail.stock_quantity" step='1' v-model="count"></numberbox>
           </div>
           <div class="btns">

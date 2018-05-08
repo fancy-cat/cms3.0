@@ -19,6 +19,7 @@ export default {
       }
   },
   //value是父组件传来的值，固定写法
+  //goodsid是cart页面传过来，实现+和-时，改变对应store中的数据，与本地数据联动
   props:['min','max','step','value','goodsid'],
   methods:{
       reducebtn(){
